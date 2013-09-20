@@ -12,8 +12,7 @@ int tiltPos = 0;
 const int analogInPin = A1; // the pin that the IR sensor is attached to
 
 //regarding measurements
-int sensorValue; // raw measurement from IR sensor
-float invsensorValue;
+float sensorValue; // raw measurement from IR sensor
 int distanceValue; // after processing, sensor measurement is converted into distance (cm)
 
 
@@ -39,21 +38,26 @@ void loop() {
         //statements
         // IR sensor measurement for the new position
         sensorValue = analogRead(analogInPin);
-        invsensorValue = 1.0/sensorValue; 
         
         // given IR sensor measurement, calculate real distance (cm)
+        // we used an exponential fit because it was more accurate compared to the linear fit equation
         distanceValue = 108.2 * pow(2.71828,-.003055*sensorValue);
         
         // print everything!
-        Serial.print("panPos = ");
-        Serial.println(panPos);
-        Serial.print("tiltPos = ");
-        Serial.println(tiltPos);
-        Serial.print("sensorValue = ");
-        Serial.println(sensorValue);
-        Serial.print("distanceValue= ");
+//        Serial.print("panPos = ");
+//        Serial.println(panPos);
+//        Serial.print("tiltPos = ");
+//        Serial.println(tiltPos);
+//        Serial.print("sensorValue = ");
+//        Serial.println(sensorValue);
+//        Serial.print("distanceValue= ");
+//        Serial.println(distanceValue);
+//        Serial.println("");
+
+        // communicating to matlab
         Serial.println(distanceValue);
-        Serial.println("");
+        Serial.println(panPos);
+        Serial.println(tiltPos);
         
         // give time for the microcontroller to process everything
         delay(2);       
