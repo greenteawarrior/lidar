@@ -22,8 +22,7 @@ void setup() {
   
   // attaching the servos on Arduino pins
   pan.attach(9);
-  tilt.attach(8);
-  
+  tilt.attach(8); 
 }
 
 void loop() {
@@ -33,9 +32,11 @@ void loop() {
      delay(500); // waits 15ms for the servo to reach new position
      
      for (tiltPos = 0; tiltPos <= 180; tiltPos += 1){
+        
         tilt.write(tiltPos);
-        delay(500); // waits 15ms for the servo to reach new position
-        //statements
+        // waits 0.5sec for the servo to reach new position
+        delay(500); 
+        
         // IR sensor measurement for the new position
         sensorValue = analogRead(analogInPin);
         
@@ -43,17 +44,6 @@ void loop() {
         // we used an exponential fit because it was more accurate compared to the linear fit equation
         distanceValue = 108.2 * pow(2.71828,-.003055*sensorValue);
         
-        // print everything!
-//        Serial.print("panPos = ");
-//        Serial.println(panPos);
-//        Serial.print("tiltPos = ");
-//        Serial.println(tiltPos);
-//        Serial.print("sensorValue = ");
-//        Serial.println(sensorValue);
-//        Serial.print("distanceValue= ");
-//        Serial.println(distanceValue);
-//        Serial.println("");
-
         // communicating to matlab
         Serial.println(distanceValue);
         Serial.println(panPos);
