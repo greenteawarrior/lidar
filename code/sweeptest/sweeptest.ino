@@ -11,6 +11,10 @@ int tiltPos = 0;
 //setting up pins
 const int analogInPin = A1; // the pin that the IR sensor is attached to
 
+//signals for data processing
+const int nextmeasurement = -11;
+const int theend = -6;
+
 //regarding measurements
 float sensorValue; // raw measurement from IR sensor
 int distanceValue; // after processing, sensor measurement is converted into distance (cm)
@@ -26,12 +30,8 @@ void setup() {
 }
 
 void loop() {
-  
-  for (panPos = 0; panPos <= 180; panPos += 1){ // goes from 0 degrees to 180 degrees in 1-degree steps
-     pan.write(panPos);
-     delay(500); // waits 15ms for the servo to reach new position
-     
-     for (tiltPos = 0; tiltPos <= 180; tiltPos += 1){
+ 
+     for (tiltPos = 0; tiltPos <= 30; tiltPos += 1){
         
         tilt.write(tiltPos);
         // waits 0.5sec for the servo to reach new position
@@ -48,9 +48,10 @@ void loop() {
         Serial.println(distanceValue);
         Serial.println(panPos);
         Serial.println(tiltPos);
+        Serial.println(nextmeasurement);
        
         // give time for the microcontroller to process everything
-        delay(2);       
-       }
-    } 
+        delay(200);       
+       } 
+  Serial.println(theend);
 }
