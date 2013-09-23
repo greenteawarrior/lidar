@@ -33,11 +33,11 @@ void setup() {
 
 void loop() {
   
-  for (panPos = 40; panPos <= 130; panPos += 5){ // goes from 0 degrees to 180 degrees in 1-degree steps
+  for (panPos = 40; panPos <= 130; panPos += 1){ // goes from 0 degrees to 180 degrees in 1-degree steps
      pan.write(panPos);
      delay(200); // waits 15ms for the servo to reach new position
      
-     for (tiltPos = 60; tiltPos <= 120; tiltPos += 5){
+     for (tiltPos = 60; tiltPos <= 120; tiltPos += 1){
         
         tilt.write(tiltPos);
         // waits 0.5sec for the servo to reach new position

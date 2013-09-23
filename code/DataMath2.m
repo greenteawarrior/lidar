@@ -1,21 +1,21 @@
-function res=DataMath2(data)
-len = length(data);
+function res=DataMath2(dataMatrix)
+len = length(dataMatrix);
 c=1;
 b=1;
 l=.43;
 plotme=[0,0,0];
 for num=1:len;
-    if data(num,2)>90;
-        data(num,2)=180-data(num,2);
+    if dataMatrix(num,2)>90;
+        dataMatrix(num,2)=180-dataMatrix(num,2);
         c=-1;
     end
-    if data(num,3)>90;
-        data(num,3)=180-data(num,3);
+    if dataMatrix(num,3)>90;
+        dataMatrix(num,3)=180-dataMatrix(num,3);
         b=-1;
     end
-    d=data(num,1); %distance
-    theta=data(num,2); %pan angle
-    phi=data(num,3); %tilt angle
+    d=dataMatrix(num,1); %distance
+    theta=dataMatrix(num,2); %pan angle
+    phi=dataMatrix(num,3); %tilt angle
     s=d*sind(phi); %triangulation helper
     X=(l+s)*cosd(theta)*c;
     Y=(l+s)*sind(theta);
