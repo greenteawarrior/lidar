@@ -13,4 +13,5 @@ try
 catch
     fclose(arduino);
 end
+
 fclose(arduino);

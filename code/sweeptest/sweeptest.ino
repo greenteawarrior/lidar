@@ -1,3 +1,5 @@
+//2D sweep for POE lab.
+
 #include <Servo.h>
 
 //create two servo objects;
@@ -30,10 +32,12 @@ void setup() {
 }
 
 void loop() {
+  tiltPos = 90;
+  tilt.write(tiltPos); //tilt always at 90 degrees for the 2D sweep
  
-     for (tiltPos = 0; tiltPos <= 30; tiltPos += 1){
+     for (panPos = 0; panPos <= 180; panPos += 1){
         
-        tilt.write(tiltPos);
+        pan.write(panPos);
         // waits 0.5sec for the servo to reach new position
         delay(500); 
         
