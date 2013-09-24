@@ -32,5 +32,5 @@ fclose(arduino);
 % and lidarPlot to obtain the 3D representation of the diorama.
 
 dataMatrix = DataChange(rawData);
-coordinateMatrix = DathaMath2(dataMatrix);
+coordinateMatrix = DataMath2(dataMatrix);
 lidarPlot(coordinateMatrix);
