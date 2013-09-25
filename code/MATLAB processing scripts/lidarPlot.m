@@ -5,12 +5,12 @@ function res=lidarPlot(coordinateMatrix)
 %panTotal = 19; %from 40 degrees to 130 degrees in 5 degree increments!
 
 %trial2
-tiltTotal = 31; %from 60 degrees to 120 degrees in 2 degree increments!
-panTotal = 46; %from 40 degrees to 130 degrees in 2 degree increments!
+%tiltTotal = 31; %from 60 degrees to 120 degrees in 2 degree increments!
+%panTotal = 46; %from 40 degrees to 130 degrees in 2 degree increments!
 
 %trial3
-% tiltTotal = 61; %from 60 degrees to 120 degrees in 1 degree increments!
-% panTotal = 91; %from 40 degrees to 130 degrees in 1 degree increments!
+ tiltTotal = 61; %from 60 degrees to 120 degrees in 1 degree increments!
+ panTotal = 91; %from 40 degrees to 130 degrees in 1 degree increments!
 
 Xmatrix = zeros(tiltTotal, panTotal);
 Xmatrix(:) = coordinateMatrix(:,1);
